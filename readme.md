@@ -9,9 +9,17 @@
 
 ## Website Goal
 
-- Inventory mangement
-- Order Management
+- Product mangement
+- Order and Inventory
 
 ## User Demographics
 
-- Retailer who want to organize inventory and order in one place
+- Retailer who want to organize product, inventory and order in one place.
+
+## API Data
+
+- Data will be sourced from [ECart API](https://ecartapi.com/)
+
+## Back-end Outline
+
+### Database Schema
