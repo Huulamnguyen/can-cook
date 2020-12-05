@@ -23,3 +23,16 @@
 ## Back-end Outline
 
 ### Database Schema
+
+### Languages and Framework
+
+- Python
+- Flask
+- PostgreSQL
+
+### Features / Endpoint:
+
+- **/homepage** shows application's introduction
+- **/register** GET:show form to register - POST:create an account
+- **/login** GET: show form - POST: login existing users
+- **/logout** POST: logout user
