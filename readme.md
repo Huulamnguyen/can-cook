@@ -16,8 +16,6 @@
 
 ## Back-end Outline
 
-### Database Schema
-
 ### Languages and Framework
 - Python
 - Flask
