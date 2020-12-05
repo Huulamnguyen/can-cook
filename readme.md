@@ -1,6 +1,4 @@
-# Capstone Proposal
-
-## Project Name: Inventory Management System
+# Project Name: Inventory Management System
 
 ## Project Idea:
 
