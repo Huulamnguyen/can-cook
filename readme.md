@@ -31,3 +31,7 @@
 - `/products` GET: show all active products and form to filter - POST: filter product
 - `/product/add` GET: show form to add new product - POST: handle form
 - `/product/<product_id/update` GET: show form to update existing product - POST: handle form
+- `/product/type` GET: show all product types - POST: Update product type - DELETE: delete product type
+- `/product/supplier` GET: show all supplier - POST: Update supplier - DELETE: delete supplier
+- `/procuct/brand` GET: show all brands - POST: Update brand - DELETE: delete brand
+- `/procuct/tag` GET: show all tags - POST: Update tag - DELETE: delete tag
