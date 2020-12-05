@@ -1,4 +1,4 @@
-# Project Name: Inventory Management System
+# Inventory Management System
 
 ## Project Idea:
 
