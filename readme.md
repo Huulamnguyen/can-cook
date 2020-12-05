@@ -28,6 +28,6 @@
 - `/register` GET:show form to register - POST:create an account
 - `/login` GET: show form - POST: login existing users
 - `/logout` POST: logout user
-- `/product` GET: show all active products and form to filter - POST: filter product
+- `/products` GET: show all active products and form to filter - POST: filter product
 - `/product/add` GET: show form to add new product - POST: handle form
 - `/product/<product_id/update` GET: show form to update existing product - POST: handle form
