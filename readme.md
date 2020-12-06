@@ -56,4 +56,25 @@ This resource represents the categories the store has.
 - **GET** `/categories/count` Count all categories
 - **GET** `/categories/{{id}}` Get a single category. Searches for the selected category and shows detailed information.
 - **POST** `/categories` Create a new category.
-- <span style="color:blue">some *blue* text</span> `/categories/{{id}}` Category Update. Actualize the selected category information.
+- **PUT** `/categories/{{id}}` Category Update. Actualize the selected category information.
+- **DEL** `/categories/{{id}}` Delete Category. Permanently deletes the selected category.
+
+#### Customers:
+This resource shows and manages the saved information about the store's customers.
+- **GET** `/customers` Get all customers.
+- **GET** `/customers/count` Count all costumers.
+- **GET** `/customers/{{id}}` Get a single customer. Searches for the selected customer and shows detailed information.
+- **POST** `/customers` Registers a new costumer.
+- **PUT** `/customers/{{id}}` Customers Update. Update the selected costumer's information.
+- **DEL** `/customers/{{id}}` delete Customer. Permanently deletes the selected customer.
+
+#### Orders
+This resource shows and manages the saved information about the store's orders.
+- **GET** `/orders` get all orders.
+- **GET** `/orders/count` Count all orders.
+- **GET** `/orders/{{id}}` Get a single order
+- **POST** `/orders` Creates new orders.
+- **PUT** `/orders/{{id}}` Order update. Update an order's information.
+- **DEL** `/orders/{{id}}` delete order. Permanently deletes the selected order.
+- **POST** `/orders/{{id}}/cancel` cancel order. 
+- 
