@@ -12,7 +12,7 @@
 - Retailer who want to organize product, inventory and order in one place.
 
 ## API Data
-- Data will be sourced from [ECart API](https://ecartapi.com/) and [document](https://docs.ecartapi.com/)
+- Data will be sourced from [ECart API](https://ecartapi.com/). Learn more at [ECart API document](https://docs.ecartapi.com/)
 
 ## Back-end Outline
 
