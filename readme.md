@@ -124,3 +124,19 @@ This resource shows and manages the saved information about the store's orders.
 - Add new customer
 - Edit or delete existing customer
 - View customer with order history
+
+## Testing:
+- Using [unittest](https://docs.python.org/3/library/unittest.html) - Python unit test framework
+
+## Deployment:
+- [Heroku with Python](https://devcenter.heroku.com/articles/getting-started-with-python)
+
+## Additional Details:
+
+### Features beyond simple CRUD
+- Interactive Point-of-sale to make new order
+
+### Stretch goals / possible features
+- Allow user to add image for product.
+- Can connect to many e-commerce platforms such as Shopify, Woocommerce, Wix, Kometia, Mercado Libre, Ebay, TradeGecko
+- Update to API paid version to access more Requests.
