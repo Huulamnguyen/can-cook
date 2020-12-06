@@ -31,6 +31,7 @@
 - **GET** `/login` show form 
 - **POST** `/login` login existing users
 - **POST** `/logout` logout user
+
 #### Products: 
 This resource represents the store's inventory.
 - **GET** `/products` Get all products.
@@ -48,3 +49,11 @@ This resource represents the store's inventory.
 - **DEL** `/products/{{id}}` Delete product. Permanently delete the selected product.
 - **DEL** `/products/{{productId}}/variants/{{id}` Delete variant. Permanently deletes a product's variation.
 - **DEL** `/products/{{productId}}/images/{{id}}` Delete image. Permanently deletes the selected image of a product.
+
+#### Categories:
+This resource represents the categories the store has.
+- **GET** `/categories` Searches for all the available categories.
+- **GET** `/categories/count` Count all categories
+- **GET** `/categories/{{id}}` Get a single category. Searches for the selected category and shows detailed information.
+- **POST** `/categories` Create a new category.
+- **<span style="color:blue">some *blue* text</span>** `/categories/{{id}}` Category Update. Actualize the selected category information.
