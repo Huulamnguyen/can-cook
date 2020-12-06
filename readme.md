@@ -11,7 +11,7 @@
 - Customer Management
 
 ## User Demographics
-- Retailer who want to organize product, inventory, order, and customer in one place.
+- Restaurant and retailer who want to organize product, inventory, order, and customer in one place.
 
 ## API Data
 - Data will be sourced from [ECart API](https://ecartapi.com/). Learn more at [ECart API document](https://docs.ecartapi.com/)
@@ -99,3 +99,28 @@ This resource shows and manages the saved information about the store's orders.
 - Jinja
 - Bootstrap
 
+## User Flow
+
+### All Users
+- User can only access to homepage to view the app introduction
+- To access to endpoints/feature, user must register
+
+### Registered Users
+- User can view three main functions: Sell, Product, Customer.
+
+#### Sell
+- User can search product on a search bar -> Create a new order -> Add selected product to a order -> Add quantity or unchose selected product -> cancel order or process to payment
+- User can view all categories on Sell view.
+- Order history -> edit order or cancel order.
+
+#### Products
+- User can search or filter product by name, productType, tags, vendor.
+- Then, it will show list of  appropriate products or all products.
+- Add new product.
+- Edit or delete existing product.
+
+#### Customer
+- View all customers
+- Add new customer
+- Edit or delete existing customer
+- View customer with order history
