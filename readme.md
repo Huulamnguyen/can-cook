@@ -27,10 +27,11 @@
 - `/register` GET:show form to register - POST:create an account
 - `/login` GET: show form - POST: login existing users
 - `/logout` POST: logout user
-- `/products` GET: Gel all products - POST: add new product.
+- `/products` GET: Gel all products
+- `/products` POST: add new product
 - `/products/count` GET: Count all products
-- `/product/<product_id/update` GET: show form to update existing product - POST: handle form
-- `/product/type` GET: show all product types - POST: Update product type - DELETE: delete product type
-- `/product/supplier` GET: show all supplier - POST: Update supplier - DELETE: delete supplier
-- `/procuct/brand` GET: show all brands - POST: Update brand - DELETE: delete brand
-- `/procuct/tag` GET: show all tags - POST: Update tag - DELETE: delete tag
+- `products/{{id}}` GET: Get single product. Searches for a selected product and shows the detailed information
+- `/products/{{productId}}/variants` GET: Get all product variants. Searches for all the registered variants of a single product
+- `/products/{{productId}}/variants/{{id}}`GET: Get single product variant. Searches for the selected variant and shows the detailed information.
+
+
