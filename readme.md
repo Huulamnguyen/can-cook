@@ -10,11 +10,11 @@
 - Order and Inventory
 
 ## User Demographics
-- Retailer who want to organize product, inventory and order in one place.
+- Retailer who want to organize product, inventory, order, and customer in one place.
 
 ## API Data
 - Data will be sourced from [ECart API](https://ecartapi.com/). Learn more at [ECart API document](https://docs.ecartapi.com/)
-- The API has free version for academic
+- The API has free version, but limit 1000 Requests.
 
 ## Back-end Outline
 
@@ -88,4 +88,13 @@ This resource shows and manages the saved information about the store's orders.
 - use session or JWT to keep track of authenticated user
 - API keys need to be protected
 
-### 
+## Front-end Outline
+
+### Languages / Frameworks
+- JavaScript
+- Ajax
+- HTML
+- CSS
+- Jinja
+- Bootstrap
+
