@@ -26,8 +26,8 @@
 - `/register` GET:show form to register - POST:create an account
 - `/login` GET: show form - POST: login existing users
 - `/logout` POST: logout user
-- `/products` GET: show all active products and form to filter - POST: filter product
-- `/product/add` GET: show form to add new product - POST: handle form
+- `/products` GET: Gel all products - POST: add new product.
+- `/products/count` GET: Count all products
 - `/product/<product_id/update` GET: show form to update existing product - POST: handle form
 - `/product/type` GET: show all product types - POST: Update product type - DELETE: delete product type
 - `/product/supplier` GET: show all supplier - POST: Update supplier - DELETE: delete supplier
