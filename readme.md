@@ -13,6 +13,7 @@
 
 ## API Data
 - Data will be sourced from [ECart API](https://ecartapi.com/). Learn more at [ECart API document](https://docs.ecartapi.com/)
+- The API has free version for academic
 
 ## Back-end Outline
 
