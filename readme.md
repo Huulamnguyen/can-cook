@@ -30,11 +30,11 @@
 - `/login` GET: show form - POST: login existing users
 - `/logout` POST: logout user
 #### Products: This resource represents the store's inventory.
-- GET `/products` Get all products.
-- GET `/products/count` Count all products.
-- GET `products/{{id}}` Get single product. Searches for a selected product and shows the detailed information.
-- GET `/products/{{productId}}/variants` Get all product variants. Searches for all the registered variants of a single product.
-- GET `/products/{{productId}}/variants/{{id}}` Get single product variant. Searches for the selected variant and shows the detailed information.
-- GET `/products/{{productId}}/images` Get all product images. Searches for all the images of a single product.
-- GET `/products/{{productId}}/images/{{id}}` Get a single product image. Searches for the selected image of a product.
-- POST `/products` add new product to the API
+- **GET** `/products` Get all products.
+- **GET** `/products/count` Count all products.
+- **GET** `products/{{id}}` Get single product. Searches for a selected product and shows the detailed information.
+- **GET** `/products/{{productId}}/variants` Get all product variants. Searches for all the registered variants of a single product.
+- **GET** `/products/{{productId}}/variants/{{id}}` Get single product variant. Searches for the selected variant and shows the detailed information.
+- **GET** `/products/{{productId}}/images` Get all product images. Searches for all the images of a single product.
+- **GET** `/products/{{productId}}/images/{{id}}` Get a single product image. Searches for the selected image of a product.
+- **POST** `/products` add new product to the API
