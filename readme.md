@@ -77,4 +77,3 @@ This resource shows and manages the saved information about the store's orders.
 - **PUT** `/orders/{{id}}` Order update. Update an order's information.
 - **DEL** `/orders/{{id}}` delete order. Permanently deletes the selected order.
 - **POST** `/orders/{{id}}/cancel` cancel order. 
-- 
