@@ -127,6 +127,7 @@ This resource shows and manages the saved information about the store's orders.
 
 ## Testing:
 - Using [unittest](https://docs.python.org/3/library/unittest.html) - Python unit test framework
+- Travis CI 
 
 ## Deployment:
 - [Heroku with Python](https://devcenter.heroku.com/articles/getting-started-with-python)
