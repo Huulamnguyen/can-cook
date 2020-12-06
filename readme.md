@@ -23,10 +23,13 @@
 - PostgreSQL
 
 ### Features / Endpoint:
+
+#### User
 - `/` homepage shows application's introduction
 - `/register` GET:show form to register - POST:create an account
 - `/login` GET: show form - POST: login existing users
 - `/logout` POST: logout user
+#### Products: This resource represents the store's inventory.
 - `/products` GET: Gel all products
 - `/products` POST: add new product
 - `/products/count` GET: Count all products
