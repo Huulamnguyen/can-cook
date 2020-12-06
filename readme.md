@@ -7,7 +7,8 @@
 
 ## Website Goal
 - Product mangement
-- Order and Inventory
+- Order and Inventory Management
+- Customer Management
 
 ## User Demographics
 - Retailer who want to organize product, inventory, order, and customer in one place.
