@@ -31,7 +31,8 @@
 - **GET** `/login` show form 
 - **POST** `/login` login existing users
 - **POST** `/logout` logout user
-#### Products: This resource represents the store's inventory.
+#### Products: 
+This resource represents the store's inventory.
 - **GET** `/products` Get all products.
 - **GET** `/products/count` Count all products.
 - **GET** `products/{{id}}` Get single product. Searches for a selected product and shows the detailed information.
