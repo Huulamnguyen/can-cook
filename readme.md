@@ -40,3 +40,10 @@
 - **GET** `/products/{{productId}}/images` Get all product images. Searches for all the images of a single product.
 - **GET** `/products/{{productId}}/images/{{id}}` Get a single product image. Searches for the selected image of a product.
 - **POST** `/products` add new product to the API
+- **POST** `/products/{{productId}}/variants` Variants. Creates a variation of an available product.
+- **POST** `/products/{{productId}}/images` Images. Adds a new image to an existing product.
+- **PUT** `/products/{{id}}` Product Update. Updates the product information, according to new detailed information.
+- **PUT** `/products/{{productId}}/variants/{{id}}` Variant Update. Updates the information of an already existing product variant.
+- **DEL** `/products/{{id}}` Delete product. Permanently delete the selected product.
+- **DEL** `/products/{{productId}}/variants/{{id}` Delete variant. Permanently deletes a product's variation.
+- **DEL** `/products/{{productId}}/images/{{id}}` Delete image. Permanently deletes the selected image of a product.
