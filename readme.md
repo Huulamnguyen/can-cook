@@ -25,10 +25,12 @@
 ### Features / Endpoint:
 
 #### User
-- `/` homepage shows application's introduction
-- `/register` GET:show form to register - POST:create an account
-- `/login` GET: show form - POST: login existing users
-- `/logout` POST: logout user
+- **GET** `/` homepage shows application's introduction
+- **GET** `/register` show form to register 
+- **POST** `/register` create an account
+- **GET** `/login` show form 
+- **POST** `/login` login existing users
+- **POST** `/logout` logout user
 #### Products: This resource represents the store's inventory.
 - **GET** `/products` Get all products.
 - **GET** `/products/count` Count all products.
