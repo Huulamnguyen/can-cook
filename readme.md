@@ -56,4 +56,4 @@ This resource represents the categories the store has.
 - **GET** `/categories/count` Count all categories
 - **GET** `/categories/{{id}}` Get a single category. Searches for the selected category and shows detailed information.
 - **POST** `/categories` Create a new category.
-- **<span style="color:blue">some *blue* text</span>** `/categories/{{id}}` Category Update. Actualize the selected category information.
+- <span style="color:blue">some *blue* text</span> `/categories/{{id}}` Category Update. Actualize the selected category information.
