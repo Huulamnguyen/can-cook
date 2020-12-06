@@ -131,6 +131,9 @@ This resource shows and manages the saved information about the store's orders.
 ## Deployment:
 - [Heroku with Python](https://devcenter.heroku.com/articles/getting-started-with-python)
 
+## Workflow:
+- Git workflow
+
 ## Additional Details:
 
 ### Features beyond simple CRUD
