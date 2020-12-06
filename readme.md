@@ -31,6 +31,7 @@
 - **GET** `/login` show form 
 - **POST** `/login` login existing users
 - **POST** `/logout` logout user
+(* User **must** log in to access to endpoints below)
 
 #### Products: 
 This resource represents the store's inventory.
@@ -77,3 +78,13 @@ This resource shows and manages the saved information about the store's orders.
 - **PUT** `/orders/{{id}}` Order update. Update an order's information.
 - **DEL** `/orders/{{id}}` delete order. Permanently deletes the selected order.
 - **POST** `/orders/{{id}}/cancel` cancel order. 
+
+### Issue with Ecart API
+- 1,000 API Requests License
+
+### Sensitive Information
+- passwords will be hashed with bcrypt
+- use session or JWT to keep track of authenticated user
+- API keys need to be protected
+
+### 
