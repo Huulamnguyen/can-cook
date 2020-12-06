@@ -82,7 +82,7 @@ This resource shows and manages the saved information about the store's orders.
 - **POST** `/orders/{{id}}/cancel` cancel order. 
 
 ### Issue with Ecart API
-- 1,000 API Requests License
+- For free version 1,000 API Requests License
 
 ### Sensitive Information
 - passwords will be hashed with bcrypt
