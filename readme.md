@@ -1,21 +1,19 @@
 # Inventory Management System
 
 ## Project Idea:
-- As a member of a retailer in New York. I experienced difficulty managing inventory without using any technology.
-- My idea is inspired by a cloud application named VEND, which is a big inventory management system software in New Zealand. 
-- You can find more at [VENDHQ.com](https://www.vendhq.com/) and images below.
+- Food Suggestion for people who love cooking.
+- People can search many receipes base on what they have on their refrigerator.
 
 ## Website Goal
-- Product mangement
-- Order and Inventory Management
-- Customer Management
+- Receipe management.
+- Search ad filter for receipe.
+- Create and manage favorite receip list.
 
 ## User Demographics
-- Restaurant and retailer who want to organize product, inventory, order, and customer in one place.
+- People is over 4 years-old
 
 ## API Data
-- Data will be sourced from [ECart API](https://ecartapi.com/). Learn more at [ECart API document](https://docs.ecartapi.com/)
-- The API has free version, but limit 1000 Requests.
+- Food API
 
 ## Back-end Outline
 
