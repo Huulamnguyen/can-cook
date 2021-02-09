@@ -7,7 +7,7 @@
 ## Website Goal
 - Receipe management.
 - Search ad filter for receipe.
-- Create and manage favorite receip list.
+- Create and manage favorite receipes list.
 
 ## User Demographics
 - People is over 4 years-old
