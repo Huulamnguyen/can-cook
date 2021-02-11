@@ -15,6 +15,8 @@
 - People who is looking for receipes that they love.
 - Cooking learner.
 - Food lover.
+## Database Schema
+
 
 ## API Data
 - Food API. Learn more about Food API Docs [here](https://spoonacular.com/food-api/docs)
