@@ -69,11 +69,11 @@
 ## User Flow
 
 ### All Users
-- User without authorized registration can search recipe by name and ingredients
+- User without authorized registration can search recipe by name and ingredients.
 - User can view recipe's information such as: Image, Ingredients, Equipment, Instruction.
 
 ### Registered Users
-- User can add, edit, delete recipes to favorite collection.
+- Authorized Users can add, edit, delete recipes to favorite collection.
 
 ## Testing:
 - Using [unittest](https://docs.python.org/3/library/unittest.html) - Python unit test framework
@@ -88,7 +88,7 @@
 ## Additional Details:
 
 ### Features beyond simple CRUD
-- Recommend recipes by user's interest
+- Recommend recipes by user's interest.
 
 ### Stretch goals / possible features
 - Improve font-end.
