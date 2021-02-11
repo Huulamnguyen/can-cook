@@ -42,9 +42,9 @@
 - **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names. 
 - **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instructio, price breakdown.
 - **GET** `recipes/findByIngredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
-- **POST** `recipes/{id}/add` Add recipe to favorite collection. (User must be authorized account)
-- **PUT** `recipes/{id}/edit` Edit recipe name. (User must be authorized account)
-- **DELETE** `recipes/{id}/delete` Delete favorite recipe. (User must be authorized account)
+- **POST** `/user/{id}/recipes/{id}/add` Add recipe to favorite collection. (User must be authorized account)
+- **PUT** `/user/{id}/recipes/{id}/edit` Edit recipe name. (User must be authorized account)
+- **DELETE** `/user/{id}/recipes/{id}/delete` Delete favorite recipe. (User must be authorized account)
 
 ### Issue with Spoocular Food API
 - Academic purpose only for 3 months
