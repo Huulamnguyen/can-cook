@@ -7,10 +7,9 @@
 - Learn how to cook their favorite dishes.
 
 ## Website Goal
-- Receipe management.
-- Search ad filter for recipes and Ingredients.
-- Create and manage favorite receipes list.
-- Learn how to cook step by step with image.
+- Searching for recipes by name and ingredients.
+- Create and manage favorite recipes list.
+- Learn how to cook step by step with ingredient images and equipments images.
 
 ## User Demographics
 - People who is looking for receipes that they love.
@@ -38,14 +37,14 @@
 - **POST** `/logout` logout user
 
 #### Recipe
-- **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names.
+- **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names. 
 - **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction
 - **GET** `recipes/findByIngredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
-- **POST** `recipes/{id}/add` Add recipe to favorite collection.
-- **PUT** `recipes/{id}/edit` Edit recipe name
-- **DELETE** `recipes/{id}/delete` Delete favorite recipe.
+- **POST** `recipes/{id}/add` Add recipe to favorite collection. (User must be authorized account)
+- **PUT** `recipes/{id}/edit` Edit recipe name. (User must be authorized account)
+- **DELETE** `recipes/{id}/delete` Delete favorite recipe. (User must be authorized account)
 
-### Issue with Ecart API
+### Issue with Spoocular Food API
 - Academic purpose only for 3 months
 
 ### Sensitive Information
@@ -66,8 +65,8 @@
 ## User Flow
 
 ### All Users
-- User without registration can search recipe and Ingredient.
-- User can view recipe's information and Ingredient's information.
+- User without authorized registration can search recipe by name and ingredients
+- User can view recipe's information such as: Image, Ingredients, Equipment, Instruction.
 
 ### Registered Users
 - User can add recipes to favorite collection.
@@ -86,9 +85,8 @@
 ## Additional Details:
 
 ### Features beyond simple CRUD
-- Interactive Point-of-sale to make new order
+- Recommend recipes by user's interest
 
 ### Stretch goals / possible features
-- Allow user to add image for product.
-- Can connect to many e-commerce platforms such as Shopify, Woocommerce, Wix, Kometia, Mercado Libre, Ebay, TradeGecko
-- Update to API paid version to access more Requests.
+- Improve font-end.
+- Live interactive Chat Box.
