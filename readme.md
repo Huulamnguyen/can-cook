@@ -27,13 +27,16 @@
 ### Features / Endpoint:
 
 #### User
-- **GET** `/` homepage shows application's landing page.
+- **GET** `/recipes/random` homepage shows application's landing page, show random receipes.
 - **GET** `/register` show form to register 
 - **POST** `/register` create an account
 - **GET** `/login` show form 
 - **POST** `/login` login existing users
 - **POST** `/logout` logout user
-(* User **must** log in to access to endpoints below)
+
+#### Recipe
+- **GET** `/recipes` Autocomplete a partial input to suggest possible recipe names.
+- **GET** `/recipes/{id}` Show recipe's information, includes: image of the re
 
 ### Issue with Ecart API
 - For free version 1,000 API Requests License
