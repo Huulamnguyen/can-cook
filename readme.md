@@ -38,7 +38,7 @@
 
 #### Recipe
 - **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names. 
-- **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction.
+- **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instructio, price breakdown.
 - **GET** `recipes/findByIngredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
 - **POST** `recipes/{id}/add` Add recipe to favorite collection. (User must be authorized account)
 - **PUT** `recipes/{id}/edit` Edit recipe name. (User must be authorized account)
@@ -69,8 +69,7 @@
 - User can view recipe's information such as: Image, Ingredients, Equipment, Instruction.
 
 ### Registered Users
-- User can add recipes to favorite collection.
-
+- User can add, edit, delete recipes to favorite collection.
 
 ## Testing:
 - Using [unittest](https://docs.python.org/3/library/unittest.html) - Python unit test framework
