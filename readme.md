@@ -33,7 +33,7 @@
 ### Features / Endpoint:
 
 #### User
-- **GET** `/recipes/random` homepage shows application's landing page, show random receipes.
+- **GET** `/home` homepage shows application's landing page, show random receipes.
 - **GET** `/register` show form to register 
 - **POST** `/register` create an account
 - **GET** `/login` show form 
