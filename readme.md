@@ -38,7 +38,7 @@
 
 #### Recipe
 - **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names. 
-- **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction
+- **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction.
 - **GET** `recipes/findByIngredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
 - **POST** `recipes/{id}/add` Add recipe to favorite collection. (User must be authorized account)
 - **PUT** `recipes/{id}/edit` Edit recipe name. (User must be authorized account)
@@ -90,3 +90,5 @@
 ### Stretch goals / possible features
 - Improve font-end.
 - Live interactive Chat Box.
+- Add Recipe Price Breakdown with estimated cost and show total cost for the recipe.
+- Develop shopping list.
