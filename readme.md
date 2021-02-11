@@ -11,14 +11,14 @@
 - Searching for recipes by name and ingredients.
 - Create and manage favorite recipes list.
 - Learn how to cook step by step with ingredient images and equipments images.
-- - Get a estimated cost for a recipe.
+- Get a estimated cost for a recipe.
 
 ## User Demographics
 - People who is looking for receipes that they love.
 - Cooking learner.
 - Food lover.
 ## Database Schema
- ![cancook EER Diagram](/cancook-diagram.png)
+ ![cancook EER Diagram](/asset/updated EER.png)
 
 ## API Data
 - Food API. Learn more about Food API Docs [here](https://spoonacular.com/food-api/docs)
@@ -39,14 +39,21 @@
 - **GET** `/login` show form 
 - **POST** `/login` login existing users
 - **POST** `/logout` logout user
+- **GET** `/user` show user details and favorite recipes.
+- **GET** `/user/edit` show user details edit form.
+- **POST** `/user/edit` edit or update user's information.
 
-#### Recipe
-- **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names. 
-- **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instructio, price breakdown.
-- **GET** `recipes/findByIngredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
-- **POST** `/user/{id}/recipes/{id}/add` Add recipe to favorite collection. (User must be authorized account)
-- **PUT** `/user/{id}/recipes/{id}/edit` Edit recipe name. (User must be authorized account)
-- **DELETE** `/user/{id}/recipes/{id}/delete` Delete favorite recipe. (User must be authorized account)
+#### Searching Recipe by Name And Ingredients.
+- **GET** `/recipes` Autocomplete a partial input to suggest possible recipe names. 
+- **GET** `/recipes/{recipe_id}` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction.
+- **GET** `/ingredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
+- **GET** `/ingredients/{ingredient_id}` Show ingredient's information.
+
+#### Endpoint For Authorized Users.
+- **GET** `/user/{user_id}/favorite` Show all favorite receipes.
+- **GET** `/recipes/{recipe_id}/price` Show recipe's estimated price breakdown for each and total ingredients.
+- **POST** `/recipes/{recipe_id}/like` Add recipe to favorite collection. 
+- **DELETE** `/recipes/{recipe_id}/unlike` Delete favorite recipe.
 
 ### Issue with Spoocular Food API
 - Academic purpose only for 3 months
@@ -73,7 +80,8 @@
 - User can view recipe's information such as: Image, Ingredients, Equipment, Instruction.
 
 ### Registered Users
-- Authorized Users can add, edit, delete recipes to favorite collection.
+- Authorized Users can add, edit, delete recipes to personal favorite collection.
+- Authorized Users can view recipe's ingredient price breakdown.
 
 ## Testing:
 - Using [unittest](https://docs.python.org/3/library/unittest.html) - Python unit test framework
@@ -84,6 +92,7 @@
 
 ## Workflow:
 - Git workflow
+- CI/CD Pipeline
 
 ## Additional Details:
 
@@ -93,5 +102,4 @@
 ### Stretch goals / possible features
 - Improve font-end.
 - Live interactive Chat Box.
-- Add Recipe Price Breakdown with estimated cost and show total cost for the recipe.
 - Develop shopping list.
