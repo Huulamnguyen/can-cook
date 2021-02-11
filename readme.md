@@ -1,13 +1,16 @@
 # Inventory Management System
 
 ## Project Idea:
+- Name: CanCook
 - Food Suggestion for people who love cooking.
-- People can search many receipes base on what they have on their refrigerator.
+- People can search many receipes base on what they have on their refrigerators.
+- Learn how to cook their favorite dishes.
 
 ## Website Goal
 - Receipe management.
-- Search ad filter for receipe.
+- Search ad filter for recipes and Ingredients.
 - Create and manage favorite receipes list.
+- Learn how to cook step by step with image.
 
 ## User Demographics
 - People who is looking for receipes that they love.
@@ -35,16 +38,20 @@
 - **POST** `/logout` logout user
 
 #### Recipe
-- **GET** `/recipes` Autocomplete a partial input to suggest possible recipe names.
-- **GET** `/recipes/{id}` Show recipe's information, includes: image of the re
+- **GET** `/recipes/autocomplete` Autocomplete a partial input to suggest possible recipe names.
+- **GET** `/recipes/{id}/information` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction
+- **GET** `recipes/findByIngredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
+- **POST** `recipes/{id}/add` Add recipe to favorite collection.
+- **PUT** `recipes/{id}/edit` Edit recipe name
+- **DELETE** `recipes/{id}/delete` Delete favorite recipe.
 
 ### Issue with Ecart API
-- For free version 1,000 API Requests License
+- Academic purpose only for 3 months
 
 ### Sensitive Information
-- passwords will be hashed with bcrypt
-- use session or JWT to keep track of authenticated user
-- API keys need to be protected
+- passwords will be hashed with bcrypt.
+- use session or JWT to keep track of authenticated user.
+- API keys need to be protected.
 
 ## Front-end Outline
 
