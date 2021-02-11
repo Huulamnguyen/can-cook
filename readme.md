@@ -1,4 +1,4 @@
-# Inventory Management System
+# CanCook
 
 ## Project Idea:
 - Name: CanCook
