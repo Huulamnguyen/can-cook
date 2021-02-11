@@ -3,13 +3,15 @@
 ## Project Idea:
 - Name: CanCook
 - Food Suggestion for people who love cooking.
-- People can search many receipes base on what they have on their refrigerators.
-- Learn how to cook their favorite dishes.
+- People can search many receipes base on what available ingredients on their refrigerators.
+- Learn how to cook step-by-step with images.
+- Get a estimated cost for a recipe.
 
 ## Website Goal
 - Searching for recipes by name and ingredients.
 - Create and manage favorite recipes list.
 - Learn how to cook step by step with ingredient images and equipments images.
+- - Get a estimated cost for a recipe.
 
 ## User Demographics
 - People who is looking for receipes that they love.
