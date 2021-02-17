@@ -18,7 +18,7 @@
 - Cooking learner.
 - Food lover.
 ## Database Schema
- ![cancook EER Diagram](/asset/cancook-diagram.png)
+ ![cancook EER Diagram](/asset/update-eer.png)
 
 ## API Data
 - Food API. Learn more about Food API Docs [here](https://spoonacular.com/food-api/docs)
