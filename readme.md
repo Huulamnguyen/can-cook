@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/Huulamnguyen/can-cook/badge.svg?branch=test-coverage-by-coveralls)](https://coveralls.io/github/Huulamnguyen/can-cook?branch=test-coverage-by-coveralls)
+[![Build Status](https://www.travis-ci.com/Huulamnguyen/can-cook.svg?branch=main)](https://www.travis-ci.com/Huulamnguyen/can-cook)
 # CanCook
 
 ## Project Idea:

@@ -5,6 +5,11 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install coveralls
 
 script:
-  - python3 -m unittest discover tests
+  - coverage run --omit */site-packages/* -m unittest discover tests
+  - coverage report
+
+after_success:
+  - coveralls
