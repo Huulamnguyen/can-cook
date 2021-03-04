@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6429759713614b98bbae79457218f5ed)](https://app.codacy.com/gh/Huulamnguyen/can-cook?utm_source=github.com&utm_medium=referral&utm_content=Huulamnguyen/can-cook&utm_campaign=Badge_Grade_Settings)
 [![Coverage Status](https://coveralls.io/repos/github/Huulamnguyen/can-cook/badge.svg?branch=test-coverage-by-coveralls)](https://coveralls.io/github/Huulamnguyen/can-cook?branch=test-coverage-by-coveralls)
 [![Build Status](https://www.travis-ci.com/Huulamnguyen/can-cook.svg?branch=main)](https://www.travis-ci.com/Huulamnguyen/can-cook)
 # CanCook
