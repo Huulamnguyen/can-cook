@@ -37,7 +37,7 @@
 ### Features / Endpoint:
 
 #### User
-- **GET** `/home` homepage shows application's landing page, show random receipes.
+- **GET** `/` show homepage, random Food Joke, random recipes
 - **GET** `/register` show form to register 
 - **POST** `/register` create an account
 - **GET** `/login` show form 
@@ -48,11 +48,8 @@
 - **POST** `/user/edit` edit or update user's information.
 
 #### Searching Recipe by Name And Ingredients.
-- **GET** `/recipes` Autocomplete a partial input to suggest possible recipe names. 
-- **GET** `/recipes/{recipe_id}` Show recipe's information, includes: image of the recipe, recipe taste, recipe equipment, recipe ingredient, and analyzed recipe instruction.
-- **GET** `/ingredients` Find recipes that use as many of the given ingredients as possible and require as few additional ingredients as possible.
-- **GET** `/ingredients/{ingredient_id}` Show ingredient's information.
-
+- **GET** `/recipes` show recipes by name. OR, recipes by ingredients. OR, random recipes if user don't search any name.
+- **GET** `/recipes/{recipe_id}` Show recipe's information, includes: image of the recipe, recipe equipment, recipe ingredient, and get analyzed recipe instruction.
 #### Endpoint For Authorized Users.
 - **GET** `/user/{user_id}/favorite` Show all favorite receipes.
 - **GET** `/recipes/{recipe_id}/price` Show recipe's estimated price breakdown for each and total ingredients.
@@ -107,3 +104,4 @@
 - Improve font-end.
 - Live interactive Chat Box.
 - Develop shopping list.
+- Get Similar Recipes
