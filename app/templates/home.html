@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} Homepage {% endblock %}
+{% block content %}
+<h1>Homepage</h1>
+<p>Food Joke: {{ random_joke }}</p>
+
+<ul>
+
+    {% for random_recipe in random_recipes %}
+    <li>
+        <img src="{{ random_recipe['image'] }}">
+        <p>{{ random_recipe['title'] }}</p>
+    </li>
+    {% endfor %}
+    
+</ul>
+
+{% endblock %}
