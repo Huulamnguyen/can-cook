@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Homepage {% endblock %}
+{% block content %}
+<h1>Homepage</h1>
+
+<div class="alert alert-success" role="foof-joke">
+    Food Joke: {{ random_joke }}
+</div>
+
+<div class="card-group">
+    {% for row in random_recipes | batch(4) %}
+    <div class="card">
+        {% for random_recipe in row %}
+
+        {% if not random_recipe['image'] %}
+        <img src="../asset/default-image.jpeg">
+        {% else %}
+        <img src="{{ random_recipe['image'] }}" class="card-img-top" alt="{{ random_recipe['title'] }}">
+        {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ random_recipe['title'] }}</h5>
+            <p>Ready in: {{ random_recipe['readyInMinutes']}}</p>
+            <p>By {{ random_recipe['sourceName']}}</p>
+            <a href="#" class="btn btn-primary">Detail</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
