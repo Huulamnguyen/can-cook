@@ -17,6 +17,7 @@ MarkupSafe==1.1.1
 psycopg2-binary==2.8.6
 pycparser==2.20
 python-coveralls==2.9.3
+python-dotenv==0.15.0
 PyYAML==5.4.1
 requests==2.25.1
 six==1.15.0
