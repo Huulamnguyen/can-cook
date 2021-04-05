@@ -1,2 +1,4 @@
 venv/
 .coverage.yml
+.env
+.coverage
