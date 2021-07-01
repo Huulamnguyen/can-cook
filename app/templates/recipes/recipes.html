@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Recipes {% endblock %}
+{% block content %}
+<h1> Recipes </h1>
+
+<div class="card-group">
+    {% for row in recipes | batch(4) %}
+    <div class="card m-3">
+        {% for recipe in row %}
+
+        {% if not recipe['image'] %}
+        <img src="../asset/default-image.jpeg">
+        {% else %}
+        <img src="https://spoonacular.com/recipeImages/{{ recipe['image'] }}" class="card-img-top" alt="{{ recipe['title'] }}">
+        {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe['title'] }}</h5>
+            <p>Ready in: {{ recipe['readyInMinutes']}} mins</p>
+            <p>Serving for {{ recipe['servings']}}</p>
+            <a href="#" class="btn btn-primary">Detail</a>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
