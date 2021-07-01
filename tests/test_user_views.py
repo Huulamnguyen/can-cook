@@ -14,7 +14,7 @@ class UserViewTestCase(TestCase):
     def tearDown(self):
         response = super().tearDown()
         return response
-
+    # Test Homepage
     def test_homepage(self):
         """Test homepage"""
         with self.client as c:
@@ -23,3 +23,12 @@ class UserViewTestCase(TestCase):
 
             self.assertEqual(response.status_code, 200)
             self.assertIn('Homepage', html)
+    # Test Search Recipes
+    def test_search_recipes(self):
+        """ Test Recipes page"""
+        with self.client as c:
+            response = c.get('/recipes')
+            html = response.get_data(as_text=True)
+
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('Recipes', html)
