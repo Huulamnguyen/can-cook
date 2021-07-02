@@ -14,7 +14,7 @@
         {% for random_recipe in row %}
 
         {% if not random_recipe['image'] %}
-        <img src="./asset/default-image.jpeg">
+        <img src="https://purewows3.imgix.net/images/articles/2020_12/LittleBeetTable_healthy-restaurants-nyc.jpg?auto=format,compress&cs=strip" alt="">
         {% else %}
         <img src="{{ random_recipe['image'] }}" class="card-img-top" alt="{{ random_recipe['title'] }}">
         {% endif %}
