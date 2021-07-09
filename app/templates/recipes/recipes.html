@@ -18,7 +18,7 @@
             <h5 class="card-title">{{ recipe['title'] }}</h5>
             <p>Ready in: {{ recipe['readyInMinutes']}} mins</p>
             <p>Serving for {{ recipe['servings']}}</p>
-            <a href="#" class="btn btn-primary">Detail</a>
+            <a href="/recipes/{{recipe.id}}" class="btn btn-primary">Detail</a>
         </div>
         {% endfor %}
     </div>

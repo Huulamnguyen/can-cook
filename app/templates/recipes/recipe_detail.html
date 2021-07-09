@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %} Recipes Detail {% endblock %}
+{% block content %}
+<h1> Recipe Detail</h1>
+<h2>{{recipe_detail['title']}}</h2>
+<img src="{{recipe_detail['image']}}" alt="{{recipe_detail['title']}}">
+<p>Ready in minutes: {{recipe_detail['readyInMinutes']}}</p>
+<p>Serving for: {{recipe_detail['servings']}}</p>
+
+<h3>Summary</h3>
+<p>{{ recipe_summary }}</p>
+
+<h3>Equipments</h3>
+<p>{{recipe_equipments | safe}}</p>
+
+<h3>Ingredients</h3>
+<p>{{recipe_ingredients | safe}}</p>
+
+<h3>Instructions</h3>
+{% for instruction in analyzed_instructions %}
+    {% for step in instruction['steps'] %}
+        <ul>
+            <li>Step {{step['number']}}: {{step['step']}} 
+                <h5>Ingredients for this step: </h5>
+                {% for ingredient in step['ingredients'] %}
+                    <ul>
+                        <li> {{ ingredient['name'] }} </li>
+                    </ul>
+                {% endfor %}
+                <h5>Equipments for this step: </h5>
+                {% if step['equipment'] %}
+                    {% for equipment in step['equipment'] %}
+                        <ul>
+                            <li> {{ equipment['name'] }} </li>
+                        </ul>
+                    {% endfor %}
+                {% else %}
+                <ul>
+                    <li>There is no required equipment</li>
+                </ul>
+                {% endif %}        
+            </li>
+        </ul>
+    {% endfor %}
+{% endfor %}
+{% endblock %}
