@@ -23,7 +23,7 @@
             <h5 class="card-title">{{ random_recipe['title'] }}</h5>
             <p>Ready in: {{ random_recipe['readyInMinutes']}}</p>
             <p>By {{ random_recipe['sourceName']}}</p>
-            <a href="#" class="btn btn-primary">Detail</a>
+            <a href="/recipes/{{random_recipe.id}}" class="btn btn-primary">Detail</a>
         </div>
         {% endfor %}
     </div>
