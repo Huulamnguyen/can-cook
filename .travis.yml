@@ -5,7 +5,14 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install coverage
   - pip install coveralls
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database recipe_test;' -U postgres
 
 script:
   - coverage run --omit */site-packages/* -m unittest discover tests

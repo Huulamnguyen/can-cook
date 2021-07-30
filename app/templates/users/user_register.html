@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>CanCook - Register</title>
+    </head>
+    <body>
+        <div class="container">
+            <h2 class="header text-center">Register</h2>
+            <div class="form">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for msg in messages %}
+                            <p>{{msg}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form method="POST" id='register-form'>
+                {{ form.hidden_tag() }}
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                    {% for error in field.errors %}
+                        <span class="text-danger">{{ error }}</span>
+                    {% endfor %}
+                    <div class="form-group">
+                        {{ field(placeholder=field.label.text, class="form-control") }}
+                    </div>
+                {% endfor %}
+                <button class="btn btn-success btn-block btn-lg">Sign Up</button>
+            </form>
+            <a href="/login">Already have an account?</a>
+            <a href="/">Go back</a>
+        </div>
+    </body>
+</html>
