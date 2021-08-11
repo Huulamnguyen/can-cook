@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %} User {% endblock %}
+{% block content %}
+<h2> Welcome, {{ g.user.username }} </h2>
+<img src={{g.user.image_url}}>
+{% endblock %}

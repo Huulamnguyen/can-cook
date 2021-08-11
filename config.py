@@ -2,16 +2,16 @@
 import os
 
 class Config: 
-    SECRET_KEY = os.environ.get('SECRET_KEY', 'RecipeApp123') or os.urandom(16)
+    SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(16)
     SQLALCHEMY_TRACK_MODIFICATION = False
     SQLALCHEMY_ECHO = False
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     WTF_CSRF_ENABLED = False
+    PRESERVE_CONTEXT_ON_EXCEPTION = False
 
     @staticmethod
     def init_app(app):
         pass
-    
 class DevelopmentConfig(Config):
     """ Configuration for Development Environment. """
     ENV = 'development'
@@ -28,12 +28,9 @@ class ProductionConfig(Config):
     ENV = 'production'
     SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE')
 
-config = {
+app_config = {
+    'default': DevelopmentConfig,
     'development': DevelopmentConfig,
     'testing': TestingConfig,
-    'production': ProductionConfig,
-    'default': DevelopmentConfig
-} 
-
-# Reference: 
-# Azaria (2021) Covid-19 [Source Code]. https://github.com/azaria-dedmon/covid-19/blob/master/config.py
+    'production': ProductionConfig
+};
