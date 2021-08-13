@@ -165,6 +165,7 @@ class UserViewTestCase(TestCase):
         self.assertIn('Access unauthorized', html)
     
     def test_edit_user_submit(self):
+        """Test user edit form submit"""
         with self.client as c:
             with c.session_transaction() as sess:
                 sess[CURR_USER_KEY] = self.testuser.id
@@ -176,3 +177,17 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text = True)
             self.assertEqual(resp.status_code, 200)
             self.assertIn('Monkey Test One', html)
+    
+    def test_edit_user_submit_with_wrong_password(self):
+        """Test user edit form submit with wrong password"""
+        with self.client as c:
+            with c.session_transaction() as sess:
+                    sess[CURR_USER_KEY] = self.testuser.id
+            resp = c.post('/user/edit', data = {'username':'Monkey Test One', 
+                                                'email':'monkeytestone@gmail.com', 
+                                                'image_url': None, 
+                                                'password': 'Monkeytestwrong'},
+                                        follow_redirects=True)
+            html = resp.get_data(as_text = True)
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn('Wrong password, please try again.', html)
