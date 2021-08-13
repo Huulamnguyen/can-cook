@@ -135,6 +135,7 @@ class UserViewTestCase(TestCase):
             self.assertIn('Monkey Test', html)
     
     def test_user_detail_page_with_unauthorized_user(self):
+        """ Test user detail page with unauthorized user"""
         with self.client as c:
             with c.session_transaction() as sess:
                 sess[CURR_USER_KEY] = None
@@ -142,3 +143,36 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text=True)
             self.assertEqual(resp.status_code, 200)
             self.assertIn('Access unauthorized.', html)
+
+    def test_edit_user(self):
+        """ Test edit user page"""
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess[CURR_USER_KEY] = self.testuser.id
+            resp = c.get('/user/edit')
+            html = resp.get_data(as_text=True)
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn('Edit Your Profile', html)
+    
+    def test_edit_user_with_unauthorized_user(self):
+        """Test user edit page with unauthorized user"""
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess[CURR_USER_KEY] = None
+        resp = c.get('/user/edit', follow_redirects=True)
+        html = resp.get_data(as_text=True)
+        self.assertEqual(resp.status_code, 200)
+        self.assertIn('Access unauthorized', html)
+    
+    def test_edit_user_submit(self):
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess[CURR_USER_KEY] = self.testuser.id
+            resp = c.post('/user/edit', data = {'username':'Monkey Test One', 
+                                                'email':'monkeytestone@gmail.com', 
+                                                'image_url': None, 
+                                                'password': 'Monkeytest'},
+                                        follow_redirects=True)
+            html = resp.get_data(as_text = True)
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn('Monkey Test One', html)
