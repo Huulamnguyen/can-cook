@@ -132,4 +132,13 @@ class UserViewTestCase(TestCase):
             resp = c.get('/user')
             html = resp.get_data(as_text=True)
             self.assertEqual(resp.status_code, 200)
-            self.assertIn('Welcome, Monkey Test', html)
+            self.assertIn('Monkey Test', html)
+    
+    def test_user_detail_page_with_unauthorized_user(self):
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess[CURR_USER_KEY] = None
+            resp = c.get('/user', follow_redirects=True)
+            html = resp.get_data(as_text=True)
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn('Access unauthorized.', html)
