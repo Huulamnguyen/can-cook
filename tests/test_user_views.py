@@ -2,6 +2,7 @@
 from unittest import TestCase
 from models import db, User
 from app import create_app, CURR_USER_KEY
+from sqlalchemy.exc import InvalidRequestError
 
 app = create_app('testing')
 app.app_context().push()
@@ -191,3 +192,20 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text = True)
             self.assertEqual(resp.status_code, 200)
             self.assertIn('Wrong password, please try again.', html)
+
+    def test_edit_user_with_existing_info(self):
+        """Test user edit submittion with existing information"""
+        user = User.register('Liam Nguyen', 'liamnguyen.swe@gmail.com', None, 'Liam0671')
+        uid = 3333
+        user.id = uid
+
+        db.session.commit()
+
+        with self.assertRaises(InvalidRequestError):
+            with self.client as c:
+                with c.session_transaction() as sess:
+                    sess[CURR_USER_KEY] = user.id
+                resp = c.post('user/edit', data = {'username': 'Liam Nguyen', 'email':'monkeytest@gmail.com', 'image_url': None, "password":"Liam0671"}, follow_redirects=True)
+                html = resp.get_data(as_text=True)
+                self.assertEqual(resp.status_code, 200)
+                self.assertIn('Your input is already existed, please try again', html)
