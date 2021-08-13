@@ -56,7 +56,10 @@ def register_user():
 @app.route('/user', methods=['GET', 'POST'])
 def show_user():
     """Show detail of user"""
-    return render_template('users/user_detail.html')
+    if not g.user:
+        flash('Access unauthorized.', 'danger')
+        return redirect('/')
+    return render_template('users/user_detail.html', user = g.user)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
