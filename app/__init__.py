@@ -73,15 +73,18 @@ def edit_user_detail():
 
     if form.validate_on_submit():
         if User.authenticate(user.username, form.password.data):
-            user.username = form.username.data
-            user.email = form.email.data
-            user.image_url = form.image_url.data
-
-            db.session.commit()
-            return redirect('/user')
-        
+            # Catch error if user try to update with existed information
+            try:
+                user.username = form.username.data
+                user.email = form.email.data
+                user.image_url = form.image_url.data
+                db.session.commit()
+                return redirect('/user')
+            except IntegrityError:
+                # If there is any error it will flash this message.
+                flash('Your input is already existed, please try again', 'danger')
+                return redirect('/user')
         flash('Wrong password, please try again.', 'danger')
-    
     return render_template('users/user_edit.html', form = form, user = user)
 
 @app.route('/login', methods=['GET', 'POST'])
