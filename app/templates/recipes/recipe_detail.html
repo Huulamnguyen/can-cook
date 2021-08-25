@@ -1,7 +1,15 @@
 {% extends 'base.html' %}
 {% block title %} Recipes Detail {% endblock %}
 {% block content %}
+
 <h1> Recipe Detail</h1>
+
+<form method="POST" action="/recipes/{{recipe_detail.id}}/like" class="recipes-like">
+    <button class="btn btn-sm {{'btn-primary' if recipe_detail.id in favorites else 'btn-secondary'}}">
+        <i class="fa fa-thumbs-up"></i>
+    </button>
+</form>
+
 <h2>{{recipe_detail['title']}}</h2>
 <img src="{{recipe_detail['image']}}" alt="{{recipe_detail['title']}}">
 <p>Ready in minutes: {{recipe_detail['readyInMinutes']}}</p>
