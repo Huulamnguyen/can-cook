@@ -1,7 +1,7 @@
 """ Application """
 from flask import Flask, render_template, request, g, session, redirect, flash
 from flask_bcrypt import Bcrypt
-from models import connect_db, User, db
+from models import connect_db, User, Favorite, db
 from forms import RegisterForm, LoginForm
 from config import app_config
 from sqlalchemy.exc import IntegrityError
@@ -59,7 +59,17 @@ def show_user():
     if not g.user:
         flash('Access unauthorized.', 'danger')
         return redirect('/')
-    return render_template('users/user_detail.html', user = g.user)
+    
+    user_favorites = Favorite.query.filter(Favorite.user_id == g.user.id).all()
+    likes = [ favorite.recipe_id for favorite in user_favorites ]
+
+    favorites = []
+
+    for rec_id in likes:
+        recipe = get_recipe_detail(rec_id)
+        favorites.append(recipe)
+
+    return render_template('users/user_detail.html', user = g.user, favorites = favorites)
 
 @app.route('/user/edit', methods=['GET','POST'])
 def edit_user_detail():
@@ -116,8 +126,7 @@ def homepage():
     """ Show Home Page - Navbar - Random Food Joke - Random Recipes"""
     random_recipes = get_random_recipes()
     random_joke = get_random_joke()
-    return render_template('home.html', random_recipes = random_recipes, random_joke=random_joke)
-
+    return render_template('home_anon.html', random_recipes = random_recipes, random_joke=random_joke)
 
 # todo: /recipes - return recipes by searching name
 @app.route('/recipes', methods=['GET'])
@@ -135,9 +144,41 @@ def recipe_detail(recipe_id):
     recipe_equipments = visualize_recipe_equipments(recipe_id)
     recipe_ingredients = visualize_recipe_ingredients(recipe_id)
     analyzed_instructions = get_analyzed_recipe_instructions(recipe_id)
-    return render_template('recipes/recipe_detail.html', 
+
+    if g.user:
+        user_favorites = Favorite.query.filter(Favorite.user_id == g.user.id).all()
+        favs = [ recipe.recipe_id for recipe in user_favorites ]
+        return render_template('recipes/recipe_detail.html', 
+                            recipe_detail = recipe_detail,
+                            recipe_summary = strip_tags(recipe_detail['summary']),
+                            recipe_equipments = recipe_equipments,
+                            recipe_ingredients = recipe_ingredients,
+                            analyzed_instructions = analyzed_instructions,
+                            favorites = favs)
+    else:
+        return render_template('recipes/recipe_detail.html', 
                             recipe_detail = recipe_detail,
                             recipe_summary = strip_tags(recipe_detail['summary']),
                             recipe_equipments = recipe_equipments,
                             recipe_ingredients = recipe_ingredients,
                             analyzed_instructions = analyzed_instructions)
+
+# todo: /recipes/id/like - toggle a favorite recipe for the current logged-in user
+@app.route('/recipes/<int:recipe_id>/like', methods=['POST'])
+def add_favorite_recipe(recipe_id):
+    """Toggle a favorite recipe for the current logged-in user"""
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+
+    user_favorites = Favorite.query.filter(Favorite.user_id == g.user.id).all()
+    likes = [ recipe.recipe_id for recipe in user_favorites ]
+
+    if recipe_id in likes:
+        Favorite.query.filter(Favorite.user_id == g.user.id, Favorite.recipe_id == recipe_id).delete()
+        db.session.commit()
+    else:
+        favorite = Favorite(user_id=g.user.id, recipe_id=recipe_id)
+        db.session.add(favorite)
+        db.session.commit()
+    return redirect(f"/recipes/{recipe_id}")

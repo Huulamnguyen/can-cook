@@ -56,6 +56,31 @@
                 </div>
             </div>
         </div>
+
+        <h1> Your Favorite Recipes </h1>
+
+        <div class="card-group">
+            {% for row in favorites | batch(5) %}
+            <div class="card m-3">
+                {% for recipe in row %}
+        
+                {% if not recipe['image'] %}
+                <img src="https://purewows3.imgix.net/images/articles/2020_12/LittleBeetTable_healthy-restaurants-nyc.jpg?auto=format,compress&cs=strip" alt="Your recipe">
+                {% else %}
+                <img src="{{ recipe['image'] }}" class="card-img-top" alt="{{ recipe['title'] }}">
+                {% endif %}
+        
+                <div class="card-body">
+                    <h5 class="card-title">{{ recipe['title'] }}</h5>
+                    <p>Ready in: {{ recipe['readyInMinutes']}}</p>
+                    <p>By {{ recipe['sourceName']}}</p>
+                    <a href="/recipes/{{recipe.id}}" class="btn btn-primary">Detail</a>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
     </div>
 </div>
 
