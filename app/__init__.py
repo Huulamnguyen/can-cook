@@ -71,6 +71,26 @@ def show_user():
 
     return render_template('users/user_detail.html', user = g.user, favorites = favorites)
 
+# todo: user's favorites route - show all logged-in user favorite recipes and a function to remove recipe from favorites
+@app.route('/user/favorites', methods=['GET', 'POST'])
+def user_favorites():
+    """ Show all logged-in user favorite recipes and a function to remove a recipe from favorite list."""
+    if not g.user:
+        flash('Access unauthorized. Please register or login first', 'danger')
+        return redirect('/')
+    
+    user_favorites = Favorite.query.filter(Favorite.user_id == g.user.id).all()
+    likes = [ favorite.recipe_id for favorite in user_favorites ]
+
+    favorites = []
+
+    for rec_id in likes:
+        recipe = get_recipe_detail(rec_id)
+        favorites.append(recipe)
+        
+    return render_template('users/user_favorites.html', user = g.user, favorites = favorites)
+    
+
 @app.route('/user/edit', methods=['GET','POST'])
 def edit_user_detail():
     """Edit and update for current user"""
@@ -163,7 +183,7 @@ def recipe_detail(recipe_id):
                             recipe_ingredients = recipe_ingredients,
                             analyzed_instructions = analyzed_instructions)
 
-# todo: /recipes/id/like - toggle a favorite recipe for the current logged-in user
+# todo: /recipes/id/like - toggle the like button to add/remove a favorite recipe for the current logged-in user
 @app.route('/recipes/<int:recipe_id>/like', methods=['POST'])
 def add_favorite_recipe(recipe_id):
     """Toggle a favorite recipe for the current logged-in user"""
@@ -181,4 +201,5 @@ def add_favorite_recipe(recipe_id):
         favorite = Favorite(user_id=g.user.id, recipe_id=recipe_id)
         db.session.add(favorite)
         db.session.commit()
+        
     return redirect(f"/recipes/{recipe_id}")
