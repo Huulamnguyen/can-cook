@@ -95,7 +95,7 @@ def user_favorites():
 def edit_user_detail():
     """Edit and update for current user"""
     if not g.user:
-        flash('Access unauthorized', 'danger')
+        flash('Access unauthorized. Please register or login first', 'danger')
         return redirect('/')
     
     user = g.user
