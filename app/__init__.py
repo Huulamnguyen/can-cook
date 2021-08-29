@@ -203,3 +203,19 @@ def add_favorite_recipe(recipe_id):
         db.session.commit()
         
     return redirect(f"/recipes/{recipe_id}")
+
+# todo: remove favorite recipe from favorite list
+@app.route('/recipes/<int:recipe_id>/remove', methods=['POST'])
+def remove_favorite(recipe_id):
+    if not g.user:
+        flash("Access unauthorized.", "danger")
+        return redirect("/")
+    
+    # Get id of recipe (not recipe_id of API) in favorites table
+    recipe_to_delete_id = Favorite.query.filter(Favorite.user_id == g.user.id, Favorite.recipe_id == recipe_id).one().id
+    
+    recipe_to_delete = Favorite.query.get_or_404(recipe_to_delete_id)
+    db.session.delete(recipe_to_delete)
+    db.session.commit()
+
+    return redirect("/user/favorites")
