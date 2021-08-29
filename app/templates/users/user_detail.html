@@ -75,6 +75,11 @@
                     <p>Ready in: {{ recipe['readyInMinutes']}}</p>
                     <p>By {{ recipe['sourceName']}}</p>
                     <a href="/recipes/{{recipe.id}}" class="btn btn-primary">Detail</a>
+
+                    <form method="POST" action="/recipes/{{recipe.id}}/remove">
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                    
                 </div>
                 {% endfor %}
             </div>
