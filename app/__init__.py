@@ -57,7 +57,7 @@ def register_user():
 def show_user():
     """Show detail of user"""
     if not g.user:
-        flash('Access unauthorized.', 'danger')
+        flash('Access unauthorized. PLease register or login first', 'danger')
         return redirect('/')
     
     user_favorites = Favorite.query.filter(Favorite.user_id == g.user.id).all()
@@ -90,7 +90,7 @@ def user_favorites():
         
     return render_template('users/user_favorites.html', user = g.user, favorites = favorites)
     
-
+# todo: show edit user form and submit the edit form to database
 @app.route('/user/edit', methods=['GET','POST'])
 def edit_user_detail():
     """Edit and update for current user"""
@@ -116,6 +116,26 @@ def edit_user_detail():
                 return redirect('/user')
         flash('Wrong password, please try again.', 'danger')
     return render_template('users/user_edit.html', form = form, user = user)
+
+# todo: delete user
+@app.route('/user/delete', methods=['POST'])
+def delete_user():
+    """Delete user and related favorite recipes """
+    if not g.user:
+        flash('Access unauthorized. Please register or login first', 'danger')
+        return redirect('/')
+    
+    user_to_delete_favorites = Favorite.query.filter(Favorite.user_id == g.user.id).all()
+
+    for user_to_delete_favorite in user_to_delete_favorites:
+        db.session.delete(user_to_delete_favorite)
+    
+    do_logout()
+
+    db.session.delete(g.user)
+    db.session.commit()
+
+    return redirect("/register")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
