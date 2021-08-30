@@ -2,7 +2,7 @@
 import os
 
 class Config: 
-    SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(16)
+    SECRET_KEY = os.environ.get("SECRET_KEY") or os.urandom(16)
     SQLALCHEMY_TRACK_MODIFICATION = False
     SQLALCHEMY_ECHO = False
     DEBUG_TB_INTERCEPT_REDIRECTS = False
