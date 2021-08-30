@@ -1,6 +1,6 @@
 """User View tests."""
 from unittest import TestCase
-from models import db, User
+from models import db, User, Favorite
 from app import create_app, CURR_USER_KEY
 from sqlalchemy.exc import InvalidRequestError
 
@@ -19,6 +19,13 @@ class UserViewTestCase(TestCase):
         self.testuser = User.register('Monkey Test', 'monkeytest@gmail.com', None, 'Monkeytest')
         self.uid = 1111
         self.testuser.id = self.uid
+
+        self.testuser_favorite = Favorite(user_id = self.uid, recipe_id = 479101)
+        self.testuser_favorite_id = 1212
+        self.testuser_favorite.id = self.testuser_favorite_id
+
+        db.session.add(self.testuser_favorite)
+
         db.session.commit()
 
     def tearDown(self):
@@ -134,6 +141,7 @@ class UserViewTestCase(TestCase):
             html = resp.get_data(as_text=True)
             self.assertEqual(resp.status_code, 200)
             self.assertIn('Monkey Test', html)
+            self.assertIn('On the Job: Pan Roasted Cauliflower From Food52', html)
     
     def test_user_detail_page_with_unauthorized_user(self):
         """ Test user detail page with unauthorized user"""
@@ -205,7 +213,17 @@ class UserViewTestCase(TestCase):
             with self.client as c:
                 with c.session_transaction() as sess:
                     sess[CURR_USER_KEY] = user.id
-                resp = c.post('user/edit', data = {'username': 'Liam Nguyen', 'email':'monkeytest@gmail.com', 'image_url': None, "password":"Liam0671"}, follow_redirects=True)
+                resp = c.post('/user/edit', data = {'username': 'Liam Nguyen', 'email':'monkeytest@gmail.com', 'image_url': None, "password":"Liam0671"}, follow_redirects=True)
                 html = resp.get_data(as_text=True)
                 self.assertEqual(resp.status_code, 200)
                 self.assertIn('Your input is already existed, please try again', html)
+
+    def test_user_favorite_page(self):
+        """Test user favorite page that show all favorite recipes."""
+        with self.client as c:
+            with c.session_transaction() as sess:
+                sess[CURR_USER_KEY] = self.testuser.id
+            resp = c.get('/user/favorites')
+            html = resp.get_data(as_text=True)
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn('On the Job: Pan Roasted Cauliflower From Food52', html)
