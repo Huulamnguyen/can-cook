@@ -26,7 +26,7 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     """Configurations for Production Environment."""
     ENV = 'production'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('PRODUCTION_DATABASE')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 app_config = {
     'default': DevelopmentConfig,
