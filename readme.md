@@ -7,7 +7,7 @@
 ## Project Idea:
 - Name: CanCook
 - Food Suggestion for people who love cooking.
-- People can search many receipes base on what available ingredients on their refrigerators.
+- People can search many recipes base on what available ingredients on their refrigerators.
 - Learn how to cook step-by-step with images.
 - Get a estimated cost for a recipe.
 
@@ -18,7 +18,7 @@
 - Get a estimated cost for a recipe.
 
 ## User Demographics
-- People who is looking for receipes that they love.
+- People who is looking for recipes that they love.
 - Cooking learner.
 - Food lover.
 ## Database Schema
@@ -46,15 +46,15 @@
 - **GET** `/user` show user details and favorite recipes.
 - **GET** `/user/edit` show user details edit form.
 - **POST** `/user/edit` edit or update user's information.
+- **DELETE** `/user/delete` delete entire user account and appropriated favorite recipes.
 
 #### Searching Recipe by Name And Ingredients.
 - **GET** `/recipes` show recipes by name. OR, recipes by ingredients. OR, random recipes if user don't search any name.
 - **GET** `/recipes/{recipe_id}` Show recipe's information, includes: image of the recipe, recipe equipment, recipe ingredient, and get analyzed recipe instruction.
 #### Endpoint For Authorized Users.
-- **GET** `/user/{user_id}/favorite` Show all favorite receipes.
-- **GET** `/recipes/{recipe_id}/price` Show recipe's estimated price breakdown for each and total ingredients.
-- **POST** `/recipes/{recipe_id}/like` Add recipe to favorite collection. 
-- **DELETE** `/recipes/{recipe_id}/unlike` Delete favorite recipe.
+- **GET** `/user/favorites` Show all favorite recipes on the navbar and under under detail page.
+- **POST** `/recipes/{recipe_id}/like` Add recipe to favorite list. 
+- **DELETE** `/recipes/{recipe_id}/remove` Remove favorite recipe from favorites list.
 
 ### Issue with Spoocular Food API
 - Academic purpose only for 3 months
@@ -101,7 +101,8 @@
 - Recommend recipes by user's interest.
 
 ### Stretch goals / possible features
+- Allows user to change password.
 - Improve font-end.
 - Live interactive Chat Box.
 - Develop shopping list.
-- Get Similar Recipes
+- Get Similar Recipes.
