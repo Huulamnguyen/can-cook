@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 def create_app(config_name):
     app.config.from_object(app_config[config_name])
+    app_config[config_name].init(app)
     connect_db(app)
     return app
 
