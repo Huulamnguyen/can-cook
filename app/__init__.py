@@ -11,7 +11,7 @@ from .recipe import get_random_joke, get_random_recipes, search_recipes, get_rec
 CURR_USER_KEY = "curr_user"
 bcrypt = Bcrypt()
 app = Flask(__name__)
-Config.SECRET_KEY
+app.config['SECRET_KEY'] = Config.SECRET_KEY
 
 def create_app(config_name):
     app.config.from_object(app_config[config_name])
