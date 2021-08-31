@@ -1,4 +1,5 @@
 """ Application """
+import os
 from flask import Flask, render_template, request, g, session, redirect, flash
 from flask_bcrypt import Bcrypt
 from models import connect_db, User, Favorite, db
@@ -11,11 +12,13 @@ from .recipe import get_random_joke, get_random_recipes, search_recipes, get_rec
 CURR_USER_KEY = "curr_user"
 bcrypt = Bcrypt()
 app = Flask(__name__)
+db.init_app(app)
 app.config['SECRET_KEY'] = Config.SECRET_KEY
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 def create_app(config_name):
     app.config.from_object(app_config[config_name])
-    app_config[config_name].init(app)
+    app_config[config_name].init_app(app)
     connect_db(app)
     return app
 

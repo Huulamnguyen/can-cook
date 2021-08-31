@@ -3,7 +3,7 @@ import os
 
 class Config: 
     SECRET_KEY = os.environ.get("SECRET_KEY") or os.urandom(16)
-    SQLALCHEMY_TRACK_MODIFICATION = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = False
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     WTF_CSRF_ENABLED = False
@@ -26,7 +26,7 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     """Configurations for Production Environment."""
     ENV = 'production'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'postgresql:///recipe')
 
 app_config = {
     'default': DevelopmentConfig,
