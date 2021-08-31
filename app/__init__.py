@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, g, session, redirect, flash
 from flask_bcrypt import Bcrypt
 from models import connect_db, User, Favorite, db
 from forms import RegisterForm, LoginForm
-from config import app_config
+from config import app_config, Config
 from sqlalchemy.exc import IntegrityError
 from .parser import strip_tags
 from .recipe import get_random_joke, get_random_recipes, search_recipes, get_recipe_detail, visualize_recipe_equipments, visualize_recipe_ingredients, get_analyzed_recipe_instructions
@@ -11,6 +11,7 @@ from .recipe import get_random_joke, get_random_recipes, search_recipes, get_rec
 CURR_USER_KEY = "curr_user"
 bcrypt = Bcrypt()
 app = Flask(__name__)
+Config.SECRET_KEY
 
 def create_app(config_name):
     app.config.from_object(app_config[config_name])
