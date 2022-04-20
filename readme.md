@@ -18,7 +18,7 @@
 - Get a estimated cost for a recipe.
 
 ## User Demographics
-- People who is looking for recipes that they love.
+- People who are looking for recipes.
 - Cooking learner.
 - Food lover.
 ## Database Schema
